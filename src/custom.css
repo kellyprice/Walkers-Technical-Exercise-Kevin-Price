@@ -4,3 +4,11 @@
   margin-top: 30px;
   border: 1px solid red;
 }
+
+.fizz {
+  color: green;
+}
+
+.buzz {
+  color: red;
+}
