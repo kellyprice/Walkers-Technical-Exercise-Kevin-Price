@@ -39,7 +39,7 @@ function Home() {
                 </Button>
 
                 {
-                    Array.from({ length: fizzBuzzCount }, (_, i) => i + 1).map((number) => (
+                    Array.from({ length: 20 }, (_, i) => i + 1).map((number) => (
                         <div key={number}>
                             {number}.
                             {number % 3 === 0 ? <span className='fizz'>{' walkers' + daySuffix}</span> : ''}
