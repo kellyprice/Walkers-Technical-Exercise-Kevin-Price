@@ -1,8 +1,6 @@
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
-}
-
-code {
-  color: #E01A76;
+.container {
+  width: 420px;
+  margin: 0 auto;
+  margin-top: 30px;
+  border: 1px solid red;
 }

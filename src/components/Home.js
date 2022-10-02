@@ -1,7 +1,14 @@
+import { useState } from 'react';
+import { InputNumber } from 'antd';
+
 function Home() {
+    const [fizzBuzzCount, setFizzBuzzCount] = useState(0);
+
     return (
-        <div>
-            Hello World!
+        <div className='container'>
+            <InputNumber
+                value={fizzBuzzCount}
+                onChange={(e) => setFizzBuzzCount(e)} />
         </div>
     );
 }
