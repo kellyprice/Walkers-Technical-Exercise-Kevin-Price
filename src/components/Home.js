@@ -14,7 +14,7 @@ function Home() {
                 {
                     Array.from({ length: fizzBuzzCount }, (_, i) => i + 1).map((number) => (
                         <div key={number}>
-                            {number}
+                            {number}. {number % 3 === 0 ? 'walkers' : ''}
                         </div>
                     ))
                 }
