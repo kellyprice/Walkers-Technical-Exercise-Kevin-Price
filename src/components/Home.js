@@ -5,14 +5,17 @@ function Home() {
     const [count, setCount] = useState(0);
     const [daySuffix, setDaySuffix] = useState('');
     const [fizzBuzzCount, setFizzBuzzCount] = useState(0);
+    const [start, setStart] = useState(1);
 
     useEffect(() => {
         setDaySuffix(new Date().getDay() === 1 ? '-m' : '');
     }, []);
 
     const updateFizzBuzzCount = () => {
-        if (validate())
+        if (validate()) {
+            setStart(1);
             setFizzBuzzCount(count);
+        }
     }
     const validate = () => {
         if (count) return true;
@@ -37,9 +40,16 @@ function Home() {
                     onClick={updateFizzBuzzCount}>
                     Go
                 </Button>
+                <div>
+                    <Button
+                        disabled={start + 20 > fizzBuzzCount}
+                        onClick={() => setStart(start + 20)}>
+                        Next 20
+                    </Button>
+                </div>
 
                 {
-                    Array.from({ length: Math.min(20, fizzBuzzCount) }, (_, i) => i + 1).map((number) => (
+                    Array.from({ length: Math.min(20, fizzBuzzCount - start + 1) }, (_, i) => i + start).map((number) => (
                         <div key={number}>
                             {number}.
                             {number % 3 === 0 ? <span className='fizz'>{' walkers' + daySuffix}</span> : ''}
