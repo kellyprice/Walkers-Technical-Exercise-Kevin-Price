@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, InputNumber, notification } from 'antd';
 
 function Home() {
     const [count, setCount] = useState(0);
+    const [daySuffix, setDaySuffix] = useState('');
     const [fizzBuzzCount, setFizzBuzzCount] = useState(0);
+
+    useEffect(() => {
+        setDaySuffix(new Date().getDay() === 1 ? '-m' : '');
+    }, []);
 
     const updateFizzBuzzCount = () => {
         if (validate())
@@ -37,8 +42,8 @@ function Home() {
                     Array.from({ length: fizzBuzzCount }, (_, i) => i + 1).map((number) => (
                         <div key={number}>
                             {number}.
-                            {number % 3 === 0 ? <span className='fizz'> walkers</span> : ''}
-                            {number % 5 === 0 ? <span className='buzz'> assessment</span> : ''}
+                            {number % 3 === 0 ? <span className='fizz'>{' walkers' + daySuffix}</span> : ''}
+                            {number % 5 === 0 ? <span className='buzz'>{' assessment' + daySuffix}</span> : ''}
                         </div>
                     ))
                 }
