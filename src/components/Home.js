@@ -1,15 +1,25 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { InputNumber } from 'antd';
 
 function Home() {
     const [fizzBuzzCount, setFizzBuzzCount] = useState(0);
 
     return (
-        <div className='container'>
-            <InputNumber
-                value={fizzBuzzCount}
-                onChange={(e) => setFizzBuzzCount(e)} />
-        </div>
+        <React.Fragment>
+            <div className='container'>
+                <InputNumber
+                    value={fizzBuzzCount}
+                    onChange={(e) => setFizzBuzzCount(e)} />
+
+                {
+                    Array.from({ length: fizzBuzzCount }, (_, i) => i + 1).map((number) => (
+                        <div key={number}>
+                            {number}
+                        </div>
+                    ))
+                }
+            </div>
+        </React.Fragment>
     );
 }
 
